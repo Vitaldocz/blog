@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 
 
 class IndexView(TemplateView):
-    template_name = 'home/base.html'
+    template_name = 'home/index.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, template_name=self.template_name)
