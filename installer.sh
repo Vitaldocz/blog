@@ -10,7 +10,7 @@ else
 fi
 
 python3 -m virtualenv venv
-source env/bin/activate
+source venv/bin/activate
 pip install -r requirements.txt
 
 cd src/
