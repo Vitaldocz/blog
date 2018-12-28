@@ -1,0 +1,10 @@
+#IDE Logs
+.idea/
+
+#Virtual ENV
+venv/
+
+#Django Files
+src/db.sqlite3
+src/*/migrations/
+src/*/__pycache__
