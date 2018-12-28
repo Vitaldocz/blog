@@ -1,7 +1,7 @@
 # VitalDocz Blog
 Deployed at: https://blog.vitaldocz.com
 
-##Dependencies
+## Dependencies
 
 * Python 3.6
 * VirtualEnv & VirtualEnv Wrapper
