@@ -5,5 +5,6 @@ app_name = 'home'
 
 
 urlpatterns = [
-    path('', IndexView.as_view())
+    path('', IndexView.as_view(), name='indexView')
 ]
+
