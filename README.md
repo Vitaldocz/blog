@@ -9,6 +9,7 @@ Deployed at: https://blog.vitaldocz.com
 
 ## Installation and running
 
+* Open Terminal: CTRL+ALT+T
 * sudo mkdir blog
 * cd blog
 * git clone [https://github.com/Vitaldocz/blog.git](https://github.com/Vitaldocz/blog.git)
