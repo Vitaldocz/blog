@@ -74,7 +74,7 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'vitaldocz_blog_test',
+            'NAME': 'vitaldocz_blog',
             'HOST': 'localhost',
             'PORT': 3306,
             'USER': 'vitaldocz',
