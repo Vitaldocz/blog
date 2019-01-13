@@ -1,0 +1,40 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+    <div class="main-content">
+        <div class="sp-popup login accounts-page">
+            <div class="btns">
+                <a href="{% url 'accounts:register' %}">Register</a>
+                <a href="" class="active js-popups">Login</a>
+            </div>
+            <div class="social">
+                <div>Sign in with social account</div>
+                <ul class="pp-social-list">
+                    <li class="tw">
+                        <a href=""><i class="fa fa-twitter"></i></a></li>
+                    <li class="fb">
+                        <a href=""><i class="fa fa-facebook"></i></a></li>
+                    <li class="gp">
+                        <a href=""><i class="fa fa-google-plus"></i></a></li>
+                    <li class="vk">
+                        <a href=""><i class="fa fa-vk"></i></a></li>
+                </ul>
+            </div>
+            <div class="pp-title"><span>or</span></div>
+            <div class="form not-valid">
+{#                {% if next %}#}
+                <form class="loginForm" method="post" action="{% url 'accounts:login' %}">
+                    {% csrf_token %}
+                    {{ login_form.login_email }}
+                    <p class="form-error" id="{{ login_form.login_email.id_for_label }}_error"></p>
+                    {{ login_form.login_password }}
+                    <p class="form-error" id="{{ login_form.login_password.id_for_label }}_error"></p>
+                    <button class="btn-8 loginFormSubmitButton">Login</button>
+                </form>
+                <a href="{% url 'accounts:forgotPassword' %}">Forgot your Password?</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

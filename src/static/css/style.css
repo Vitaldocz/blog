@@ -1,0 +1,10 @@
+.accounts-page{
+    margin-top: 50px;
+}
+
+.form-error{
+    display: none;
+    font-size: 11px;
+    color: red;
+    text-align: left;
+}

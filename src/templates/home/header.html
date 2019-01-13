@@ -8,7 +8,7 @@
             </a>
         </div>
         <div class="hdm-logo">
-            <h1><a href="http://weblionmedia.net/"><img
+            <h1><a href="/"><img
                     src="{% static 'img/logo-mb.svg' %}" height="40" width="140" alt="Spectr" class="adaptive"></a></h1>
                 </div>
                 <div class=" hdm-search-user">
@@ -281,10 +281,7 @@
                                 <div class="htp-3-saved-art sm-hide">
                                     <i class="li_cloud"></i> saved articles (5)
                                 </div>
-                                <div class="htp-3-sing-login">
-                                    <a href="#signin" class="js-popups">Sign in</a> / <a
-                                        href="#login" class="js-popups">Join</a>
-                                </div>
+                                {% include 'home/header_signin_link.html' %}
                             </div>
                     </div>
                 </div>

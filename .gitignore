@@ -8,3 +8,5 @@ venv/
 src/db.sqlite3
 src/*/migrations/
 src/*/__pycache__
+
+TODO.md
