@@ -60,6 +60,7 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
 
 <body>
@@ -92,14 +93,16 @@
     <!-- Search block popup -->
     {% include 'popups/search.html' %}
 
-    <!-- Login popup -->
-    {% include 'popups/login.html' %}
+    {% if 'accounts' != request.resolver_match.app_name %}
+        <!-- Login popup -->
+        {% include 'popups/login.html' %}
 
-    <!-- Sign in popup -->
-    {% include 'popups/signin.html' %}
+        <!-- Sign in popup -->
+        {% include 'popups/signin.html' %}
 
-    <!-- Forgot pass popup -->
-    {% include 'popups/reset_pass.html' %}
+        <!-- Forgot pass popup -->
+        {% include 'popups/forgot_pass.html' %}
+    {% endif %}
 
     <!-- Mobile menu -->
     {% include 'home/menu_mobile.html' %}
@@ -125,6 +128,9 @@
 
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
+
+    <!--Form Handlers & Validators-->
+    <script src="{% static 'js/form-handlers.js' %}"></script>
 
     <!-- Theme Base, Components and Settings -->
     <script src="{% static 'js/main.js' %}"></script>

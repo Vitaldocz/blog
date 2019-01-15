@@ -1,0 +1,13 @@
+
+{# TODO: Upgrade this template include buttons instead of plain links and add css #}
+
+{% autoescape off %}
+Hi {{ user.first_name }},<br><br>
+
+Please click on the link below to confirm your registration:<br>
+{{ protocol }}://{{ domain }}{% url 'accounts:verify' token=token email=user.email %}<br><br><br>
+
+    
+    Thanks & Regards,<br>
+    Team Vitaldocz<br>
+{% endautoescape %}

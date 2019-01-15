@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+    <div class="main-content">
+        <div id="recentpass" class="sp-popup recentpass accounts-page">
+            <div class="btns">
+                <a href="{% url 'accounts:register' %}">Register</a>
+                <a href="{% url 'accounts:login' %}" class="active">Login</a>
+            </div>
+            <div class="form not-valid">
+                Hello, {{ username }}
+                <form class="resetPasswordForm" method="post" action="{% url 'accounts:resetPassword' uidb64=uidb64 token=token %}">
+                    {% csrf_token %}
+                    {{ reset_password_form.password }}
+                    <p class="form-error" id="{{ reset_password_form.password.id_for_label }}_error"></p>
+                    {{ reset_password_form.re_password }}
+                    <p class="form-error" id="{{ reset_password_form.re_password.id_for_label }}_error"></p>
+                    <button class="btn-8 resetPasswordFormSubmitButton">Change Password</button>
+                </form>
+                <a href="{% url 'accounts:login' %}"><i class="popup-arr-left-ic"></i> Login</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

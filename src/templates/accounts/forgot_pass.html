@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+    <div class="main-content">
+        <div id="recentpass" class="sp-popup recentpass accounts-page">
+            <div class="btns">
+                <a href="{% url 'accounts:register' %}">Registration</a>
+                <a href="{% url 'accounts:login' %}" class="active">Login</a>
+            </div>
+            <div class="form not-valid">
+                <form class="forgotPasswordForm" method="post" action="{% url 'accounts:forgotPassword' %}">
+                    {% csrf_token %}
+                    {{ forgot_password_form.fp_email }}
+                    <p class="form-error" id="{{ forgot_password_form.fp_email.id_for_label }}_error"></p>
+                    <button class="btn-8 forgotPasswordFormSubmitButton">Send Me Password Reset Link</button>
+                </form>
+                <a href="{% url 'accounts:register' %}"><i class="popup-arr-left-ic"></i> Register</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

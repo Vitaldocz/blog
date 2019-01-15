@@ -26,11 +26,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Project Apps
-    'posts',
+    'accounts',
+    'fields',
     'home',
+    'posts',
 
     # Third Party Apps
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
+
+# SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,6 +62,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # Custom Processors
+                'accounts.context_processor.forgot_password',
+                'accounts.context_processor.login_form',
+                'accounts.context_processor.register_form',
             ],
         },
     },
@@ -70,6 +81,8 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 if DEBUG:
     ALLOWED_HOSTS = []
+
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
     DATABASES = {
         'default': {
@@ -134,3 +147,14 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'sarthak.patidar@ecell-iitkgp.org'
+EMAIL_HOST_PASSWORD = 'Gnjn#jan2010'
+
+LOGIN_REDIRECT_URL = '/'
+
+PASSWORD_RESET_TIMEOUT_DAYS = 2

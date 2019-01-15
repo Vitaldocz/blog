@@ -1,0 +1,12 @@
+{% if request.user.is_authenticated %}
+<div class="htp-3-sing-login">
+    <a href="{% url 'accounts:logout' %}">Logout</a>
+</div>
+{% else %}
+    {% if 'accounts' != request.resolver_match.app_name %}
+    <div class="htp-3-sing-login">
+        <a href="#signin" class="js-popups">Sign in</a> /
+        <a href="#login" class="js-popups">Join</a>
+    </div>
+    {% endif %}
+{% endif %}

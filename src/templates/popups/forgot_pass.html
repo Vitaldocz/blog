@@ -1,0 +1,15 @@
+        <div id="recentpass" class="sp-popup recentpass accounts-page">
+            <div class="btns">
+                <a href="#register" class="js-popups">Register</a>
+                <a href="#login" class="active js-popups">Login</a>
+            </div>
+            <div class="form not-valid">
+                <form class="forgotPasswordForm" method="post" action="{% url 'accounts:forgotPassword' %}">
+                    {% csrf_token %}
+                    {{ forgot_password_form.fp_email }}
+                    <p class="form-error" id="{{ forgot_password_form.fp_email.id_for_label }}_error"></p>
+                    <button class="btn-8 forgotPasswordFormSubmitButton">Send Me Password Reset Link</button>
+                </form>
+                <a href="#register" class="js-popups"><i class="popup-arr-left-ic"></i> Register</a>
+            </div>
+        </div>
