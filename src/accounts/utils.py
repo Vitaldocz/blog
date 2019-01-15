@@ -14,9 +14,10 @@ class AccountActivationTokenGenerator(PasswordResetTokenGenerator):
 
 
 account_activation_token = AccountActivationTokenGenerator()
+password_reset_token = PasswordResetTokenGenerator()
 
 
-def send_mail(request, user):
+def send_account_activation_mail(request, user):
     current_site = get_current_site(request)
     protocol = request.scheme
     sender = settings.EMAIL_HOST_USER
@@ -25,6 +26,24 @@ def send_mail(request, user):
         'user': user,
         'domain': current_site.domain,
         'token': user.verification_code,
+        'protocol': protocol
+    })
+
+    msg = EmailMessage(subject=subject, body=message, from_email=sender, bcc=[user.email])
+    msg.content_subtype = "html"  # Main content is now text/html
+    return msg.send()
+
+
+def send_password_reset_mail(request, user, uidb64, token):
+    current_site = get_current_site(request)
+    protocol = request.scheme
+    sender = settings.EMAIL_HOST_USER
+    subject = '[E-Cell, IIT Kharagpur]: Verification email for participating in GES 2019'
+    message = render_to_string('emails/email_password_reset_link.html', {
+        'user': user,
+        'domain': current_site.domain,
+        'token': token,
+        'uidb64': uidb64,
         'protocol': protocol
     })
 

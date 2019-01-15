@@ -1,4 +1,4 @@
-from .forms import RegisterForm, LoginForm
+from .forms import RegisterForm, LoginForm, ForgotPasswordForm
 
 
 def register_form(request):
@@ -11,3 +11,9 @@ def login_form(request):
     if request.method == 'GET':
         form = LoginForm()
         return {'login_form': form}
+
+
+def forgot_password(request):
+    if request.method == 'GET':
+        form = ForgotPasswordForm()
+        return {'forgot_password_form': form}

@@ -27,9 +27,9 @@ class LoginForm(forms.Form):
 
 
 class ForgotPasswordForm(forms.Form):
-    email = fields.email_field()
+    fp_email = fields.email_field()
 
 
 class ResetPasswordForm(forms.Form):
     password = fields.password_field()
-    re_password = fields.password_field()
+    re_password = fields.password_field(default='Re-type password')
