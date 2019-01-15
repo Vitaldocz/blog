@@ -23,9 +23,11 @@
             </div>
             <div class="pp-title"><span>or</span></div>
             <div class="form not-valid">
-{#                {% if next %}#}
                 <form class="loginForm" method="post" action="{% url 'accounts:login' %}">
                     {% csrf_token %}
+                    {% if request.GET.next %}
+                        <input type="hidden" value="{{ request.GET.next }}" name="next">
+                    {% endif %}
                     {{ login_form.login_email }}
                     <p class="form-error" id="{{ login_form.login_email.id_for_label }}_error"></p>
                     {{ login_form.login_password }}

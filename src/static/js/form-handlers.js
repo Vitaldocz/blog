@@ -94,7 +94,7 @@ class Form{
     }
 
     submission_success(response){
-        if(response.hasOwnProperty('message')){
+        if(response['message'] !== ""){
             this.update_btn_text(response['message']);
         } else {
             this.update_btn_text(this.defaultBtnText);
@@ -143,20 +143,15 @@ class Form{
     }
 }
 
-const registerFormClass = 'registerForm';
-let registerForm = new Form(registerFormClass);
+$(document).ready(function () {
+    const forms = $('form');
+    $.each(forms, function () {
+        const formClass = this.getAttribute('class');
+        let form = new Form(formClass);
 
-
-registerForm.form.submit(function (event) {
-    event.preventDefault();
-    registerForm.submit(event);
-});
-
-const loginFormClass = 'loginForm';
-let loginForm = new Form(loginFormClass);
-
-
-loginForm.form.submit(function (event) {
-    event.preventDefault();
-    loginForm.submit(event);
+        form.form.submit(function (event) {
+            event.preventDefault();
+            form.submit(event);
+        });
+    });
 });

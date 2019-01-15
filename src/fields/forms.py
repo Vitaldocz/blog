@@ -21,9 +21,11 @@ def email_field():
     }))
 
 
-def password_field():
+def password_field(default=None):
+    if default is None:
+        default = 'password'
     return forms.CharField(widget=forms.PasswordInput(attrs={
-        'placeholder': to_upper_case_string('password'),
+        'placeholder': to_upper_case_string(default),
         'required': True,
         'autocomplete': 'Off'
     }))
@@ -39,3 +41,11 @@ def mobile_field():
         }),
         validators=[check_mobile_length]
     )
+
+
+def hidden_field():
+    return forms.CharField(widget=forms.HiddenInput(attrs={
+        'required': True,
+        'disabled': True,
+        'autocomplete': True,
+    }))

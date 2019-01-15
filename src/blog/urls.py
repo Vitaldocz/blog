@@ -17,7 +17,8 @@ urlpatterns = [
     path('register/', redirect.redirect_register, name='redirectRegister'),
     path('login/', redirect.redirect_login, name='redirectLogin'),
     path('logout/', redirect.redirect_logout, name='redirectLogout'),
-    path('forgot-password/', redirect.redirect_forgot, name='redirectForgot'),
+    path('reset-password/', redirect.redirect_reset, name='redirectReset'),
+    path('forgot-password/', redirect.redirect_forgot, name='redirectForgot')
 ]
 
 if settings.DEBUG:

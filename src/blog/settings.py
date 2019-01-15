@@ -64,13 +64,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 # Custom Processors
-                'accounts.context_processor.register_form',
+                'accounts.context_processor.forgot_password',
                 'accounts.context_processor.login_form',
+                'accounts.context_processor.register_form',
             ],
-
-            # 'libraries': {
-            #     'check_app': 'accounts.templatetags.check_app'
-            # },
         },
     },
 ]
@@ -159,3 +156,5 @@ EMAIL_HOST_USER = 'sarthak.patidar@ecell-iitkgp.org'
 EMAIL_HOST_PASSWORD = 'Gnjn#jan2010'
 
 LOGIN_REDIRECT_URL = '/'
+
+PASSWORD_RESET_TIMEOUT_DAYS = 2

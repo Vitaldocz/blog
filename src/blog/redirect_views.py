@@ -13,5 +13,9 @@ def redirect_logout(request):
     return redirect('accounts:logout')
 
 
+def redirect_reset(request):
+    return redirect('accounts:resetPassword')
+
+
 def redirect_forgot(request):
     return redirect('accounts:forgotPassword')
